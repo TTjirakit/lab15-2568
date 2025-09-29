@@ -19,7 +19,7 @@ course_router.get("/courses", ( req: Request, res: Response ) => {
 });
 
 // Params URL 
-course_router.get("/api/v2/courses/:courseId", ( req: Request, res: Response ) => {
+course_router.get("/courses/:courseId", ( req: Request, res: Response ) => {
     const courseId = Number(req.params.courseId);
     const result = zCourseId.safeParse(courseId);
 
@@ -48,7 +48,7 @@ course_router.get("/api/v2/courses/:courseId", ( req: Request, res: Response ) =
     });
 });
 
-course_router.post("/api/v2/courses", ( req: Request, res: Response ) => {
+course_router.post("/courses", ( req: Request, res: Response ) => {
     const body = req.body as Course;
     const result = zCoursePostBody.safeParse(body);
 
@@ -77,7 +77,7 @@ course_router.post("/api/v2/courses", ( req: Request, res: Response ) => {
     });
 });
 
-course_router.put("/api/v2/courses", ( req: Request, res: Response ) => {
+course_router.put("/courses", ( req: Request, res: Response ) => {
     const body = req.body as Course;
     const result = zCoursePutBody.safeParse(body);
 
@@ -107,7 +107,7 @@ course_router.put("/api/v2/courses", ( req: Request, res: Response ) => {
     });
 });
 
-course_router.delete("/api/v2/courses", ( req: Request, res: Response ) => {
+course_router.delete("/courses", ( req: Request, res: Response ) => {
     const body = req.body as { courseId: number };
     const result = zCourseDeleteBody.safeParse(body);
 
